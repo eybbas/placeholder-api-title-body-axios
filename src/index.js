@@ -2,22 +2,19 @@ import React, { useRef } from 'react';
 import ReactDOM from 'react-dom';
 import "./index.css"
 
-//2. Создайте компонент ScrollToTopButton, который будет содержать кнопку "Наверх". 
-//При клике на кнопку, страница должна прокручиваться вверх.
-
+//3. Создайте компонент PasswordResetForm, который будет содержать поле ввода адреса электронной почты и кнопку "Сбросить пароль". 
+//При отправке формы, поле ввода должно очищаться.
 function App(props){
-  const buttonRef = useRef();
+  const inputRef = useRef();
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
+  const inputClear = () => {
+    inputRef.current.value = ""
   }
 
   return(
     <div className='container'>
-        <button className='scroll-to-top-btn' onClick={scrollToTop} ref={buttonRef}>Scroll To Top</button>
+        <input ref={inputRef} type='email' />
+        <button onClick={inputClear} >Сбросить пароль</button>
     </div>
   )
 }
