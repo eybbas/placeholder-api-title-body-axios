@@ -1,21 +1,32 @@
-import React, { useRef } from 'react';
+import React, { createContext, useState } from 'react';
 import ReactDOM from 'react-dom';
-import "./index.css"
+import './index.css'
 
-//3. Создайте компонент PasswordResetForm, который будет содержать поле ввода адреса электронной почты и кнопку "Сбросить пароль". 
-//При отправке формы, поле ввода должно очищаться.
-function App(props){
-  const inputRef = useRef();
+const ThemeContext = createContext();
 
-  const inputClear = () => {
-    inputRef.current.value = ""
+function App(){
+
+  const [theme, setTheme] = useState('light');
+  const [btnColor, setBtnColor] = useState('black');
+
+  const themeToogle = () =>{
+    if(theme === 'light'){
+      setTheme('dark');
+      setBtnColor('white')
+      document.body.style.background = 'black';
+    }else{
+      setTheme('light');
+      setBtnColor('black')
+      document.body.style.background = 'white'
+    }
   }
 
   return(
-    <div className='container'>
-        <input ref={inputRef} type='email' />
-        <button onClick={inputClear} >Сбросить пароль</button>
-    </div>
+    <ThemeContext.Provider value={theme}>
+        <div className='btn-div'>
+            <button style={{color: btnColor}} onClick={themeToogle}>{theme === 'light'? 'Light.' : 'Dark.'}</button>
+        </div>
+    </ThemeContext.Provider>
   )
 }
 

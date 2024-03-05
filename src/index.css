@@ -5,9 +5,28 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: all 1s ease;
+  background: white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.btn-div{
+  margin: 400px auto;
+  width: 100px;
+}
+button{
+  width: 100px;
+  height: 50px;
+  border: 0;
+  border-radius: 5px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
+  font-weight: 550;
+  transition:all 1s ease;
+  background-color: rgba(255, 255, 255, 0);
+  color: black;
+  cursor: pointer;
 }
